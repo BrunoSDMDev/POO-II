@@ -15,6 +15,7 @@ public class Pessoa implements Comparable<Pessoa> {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
     }
+
     @Override
     public String toString() {
         return "Pessoa{" +
@@ -23,6 +24,7 @@ public class Pessoa implements Comparable<Pessoa> {
                 ", idade=" + getIdade() + "anos" +
                 '}';
     }
+
     public String getNome() {
         return nome;
     }
@@ -31,15 +33,21 @@ public class Pessoa implements Comparable<Pessoa> {
         return dataDeNascimento;
     }
 
-    public int getIdade(){
+    public int getIdade() {
         return Period.between(dataDeNascimento, LocalDate.now()).getYears();
     }
 
     @Override
     public int compareTo(Pessoa pessoaAComparar) {
-        Integer minhaIdade = getIdade();
-        return minhaIdade.compareTo(pessoaAComparar.getIdade());
-    }
+        Integer idade = getIdade();
+        int comparacaoDaIdade = idade.compareTo(pessoaAComparar.getIdade());
+        boolean idadeSaoIguais = comparacaoDaIdade == 0;
+        if (idadeSaoIguais){
+            return nome.compareTo(pessoaAComparar.getNome());
 
+        }
+        return  comparacaoDaIdade;
+
+    }
 }
 

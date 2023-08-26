@@ -55,10 +55,11 @@ public class ListaOrdenadaStrings {
 
             List<Pessoa> listaPessoas = new ArrayList<>();
             Pessoa vini = new Pessoa("Vini", LocalDate.of(1991, Month.DECEMBER, 15));
+            Pessoa jason = new Pessoa("Jason", LocalDate.of(1995, Month.JULY, 24));
             Pessoa amanda = new Pessoa("Amanda", LocalDate.of(1992, Month.APRIL, 12));
             Pessoa zed = new Pessoa("Zed", LocalDate.of(1999, Month.JANUARY, 20));
 
-            listaPessoas.addAll(List.of(zed, amanda, vini));
+            listaPessoas.addAll(List.of(zed, amanda,jason, vini));
             System.out.println("Lista de pessoas desordenada %s".formatted(listaPessoas));
             Collections.sort(listaPessoas);
             System.out.println("Lista de pessoas ordenada %s".formatted(listaPessoas));
