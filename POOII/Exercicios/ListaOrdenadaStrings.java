@@ -59,7 +59,7 @@ public class ListaOrdenadaStrings {
             Pessoa zed = new Pessoa("Zed", LocalDate.of(1999, Month.JANUARY, 20));
 
             listaPessoas.addAll(List.of(zed, amanda, vini));
-            System.out.println("Lista de pessoas desornenada %s".formatted(listaPessoas));
+            System.out.println("Lista de pessoas desordenada %s".formatted(listaPessoas));
             Collections.sort(listaPessoas);
             System.out.println("Lista de pessoas ordenada %s".formatted(listaPessoas));
 

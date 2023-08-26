@@ -1,6 +1,8 @@
 package POOII.Exercicios;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Comparator;
 
 public class Pessoa implements Comparable<Pessoa> {
@@ -13,7 +15,14 @@ public class Pessoa implements Comparable<Pessoa> {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
     }
-
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", dataDeNascimento=" + dataDeNascimento +
+                ", idade=" + getIdade() + "anos" +
+                '}';
+    }
     public String getNome() {
         return nome;
     }
@@ -22,19 +31,14 @@ public class Pessoa implements Comparable<Pessoa> {
         return dataDeNascimento;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", dataDeNascimento=" + dataDeNascimento +
-                '}';
+    public int getIdade(){
+        return Period.between(dataDeNascimento, LocalDate.now()).getYears();
     }
-
-    // Fazer a classe Pessoa ser ordenada pelos nomes das pessoas
 
     @Override
     public int compareTo(Pessoa pessoaAComparar) {
-        return this.nome.compareToIgnoreCase(pessoaAComparar.getNome());
+        Integer minhaIdade = getIdade();
+        return minhaIdade.compareTo(pessoaAComparar.getIdade());
     }
 
 }
