@@ -46,7 +46,7 @@ public class Pessoa implements Comparable<Pessoa> {
             return nome.compareTo(pessoaAComparar.getNome());
 
         }
-        return  comparacaoDaIdade;
+        return comparacaoDaIdade;
 
     }
 }

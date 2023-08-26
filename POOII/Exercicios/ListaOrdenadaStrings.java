@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListaOrdenadaStrings {
@@ -62,7 +63,13 @@ public class ListaOrdenadaStrings {
             listaPessoas.addAll(List.of(zed, amanda,jason, vini));
             System.out.println("Lista de pessoas desordenada %s".formatted(listaPessoas));
             Collections.sort(listaPessoas);
-            System.out.println("Lista de pessoas ordenada %s".formatted(listaPessoas));
+            System.out.println("Lista de pessoas ordenada por idade (menor para o maior)%s".formatted(listaPessoas));
+
+            Comparator<Pessoa> comparadorDePessoasPorNome = Comparator.comparing(Pessoa::getNome);
+            Collections.sort(listaPessoas, comparadorDePessoasPorNome);
+            System.out.println("Lista de pessoas ordenada por ordem alfabética %s".formatted(listaPessoas));
+
+
 
         }
 
