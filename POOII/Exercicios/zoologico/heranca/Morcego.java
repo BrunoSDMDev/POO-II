@@ -1,6 +1,6 @@
 package POOII.Exercicios.zoologico.heranca;
 
-public class Morcego extends Animal implements Aves, Mamifero{
+public class Morcego extends Animal implements Voador, Mamifero{
 
     @Override
     public void alimentar() {
@@ -22,10 +22,6 @@ public class Morcego extends Animal implements Aves, Mamifero{
         System.out.println("Morcego está voando");
     }
 
-    @Override
-    public void bicar() {
-        System.out.println();
-    }
 
     @Override
     public void amamentar() {
