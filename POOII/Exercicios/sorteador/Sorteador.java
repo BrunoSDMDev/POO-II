@@ -18,13 +18,20 @@ public class Sorteador {
         return sorteado;
     }
 
-    public static void main(String[] args) {
-        List<String> elementos = new ArrayList<>();
-        elementos.add("João");
-        elementos.add("Maria");
-        elementos.add("Pedro");
-        elementos.add("Ana");
-        Sorteador sorteador = new Sorteador(elementos);
-        System.out.println(sorteador.sortear());
+    public List<Grupo> agrupar(int numeroDeGrupos) {
+        List<Grupo> grupos = new ArrayList<>();
+        int elementosPorGrupo = elementos.size() / numeroDeGrupos;
+        int index = 0;
+        for (int i = 0; i < numeroDeGrupos; i++) {
+            List<String> grupo = new ArrayList<>();
+            for (int j = 0; j < elementosPorGrupo; j++) {
+                grupo.add(elementos.get(index++));
+            }
+            grupos.add(new Grupo(i, grupo));
+        }
+        return grupos;
     }
+
+
+
 }
