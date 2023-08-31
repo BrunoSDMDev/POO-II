@@ -1,33 +1,30 @@
 package POOII.Exercicios.sorteador;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Sorteador {
     private List<String> elementos;
 
-    public Sorteador (List<String> elementos) {
+    public Sorteador(List<String> elementos) {
         this.elementos = elementos;
     }
 
     public String sortear() {
-        Random NomeAleatorio = new Random();
-        int index = NomeAleatorio.nextInt(elementos.size());
-        String nomeSorteado = elementos.get(index);
-        elementos.remove(index);
-        return nomeSorteado;
+        Collections.shuffle(elementos);
+        String sorteado = elementos.get(0);
+        elementos.remove(0);
+        return sorteado;
     }
 
     public static void main(String[] args) {
         List<String> elementos = new ArrayList<>();
-        elementos.add("Bruno");
-        elementos.add("Vinícius");
-        elementos.add("Pedro");
         elementos.add("João");
+        elementos.add("Maria");
+        elementos.add("Pedro");
+        elementos.add("Ana");
         Sorteador sorteador = new Sorteador(elementos);
-        System.out.println("O nome sorteado foi " + sorteador.sortear());
+        System.out.println(sorteador.sortear());
     }
 }
-
-
