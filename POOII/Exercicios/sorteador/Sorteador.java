@@ -19,15 +19,34 @@ public class Sorteador {
     }
 
     public List<Grupo> agrupar(int numeroDeGrupos) {
-        List<Grupo> grupos = new ArrayList<>();
-        int elementosPorGrupo = elementos.size() / numeroDeGrupos;
-        int index = 0;
-        for (int i = 0; i < numeroDeGrupos; i++) {
-            List<String> grupo = new ArrayList<>();
-            for (int j = 0; j < elementosPorGrupo; j++) {
-                grupo.add(elementos.get(index++));
+        List<Grupo> grupos = inicializarGrupos(numeroDeGrupos);
+        System.out.println(grupos);
+
+        int indiceDoGrupoAtual = 0;
+        while (possuiElementos()){
+            String elementorSorteado = sortear();
+            Grupo grupoAtual = grupos.get(indiceDoGrupoAtual);
+            grupoAtual.adicionarNoGrupo(elementorSorteado);
+            indiceDoGrupoAtual++;
+            if (indiceDoGrupoAtual == numeroDeGrupos){
+                indiceDoGrupoAtual = 0;
             }
-            grupos.add(new Grupo(i, grupo));
+        }
+
+        return grupos;
+    }
+
+
+    private boolean possuiElementos () {
+        return !elementos.isEmpty();
+    }
+
+
+    public static List<Grupo> inicializarGrupos (int numeroDeGrupos){
+        List<Grupo> grupos = new ArrayList<>();
+
+        for (int i = 0; i < numeroDeGrupos; i++){
+            grupos.add(new Grupo(i));
         }
         return grupos;
     }
