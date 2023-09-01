@@ -3,9 +3,9 @@ package POOII.Exercicios.sorteador;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Grupo {
+public class Grupo <T> {
 
-    private final List<String> elementosDoGrupo;
+    private final List<T> elementosDoGrupo;
     private final int indice;
 
     public Grupo(int indice) {
@@ -13,7 +13,7 @@ public class Grupo {
         this.elementosDoGrupo = new ArrayList<>();
     }
 
-    public void adicionarNoGrupo(String novo) {
+    public void adicionarNoGrupo(T novo) {
         elementosDoGrupo.add(novo);
     }
 
