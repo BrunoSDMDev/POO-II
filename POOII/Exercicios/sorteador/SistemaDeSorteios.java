@@ -14,8 +14,8 @@ public class SistemaDeSorteios {
         elementos.add("Jorge");
         elementos.add("Miguel");
         Sorteador sorteador = new Sorteador(elementos);
-
-        System.out.println(sorteador.agrupar(2));
-        System.out.println(sorteador.sortear());
+        Agrupador<String> agrupadorDeString = new Agrupador<>(elementos);
+        List<Grupo<String>> gruposDePessoas = agrupadorDeString.agrupar(4);
+        System.out.println(gruposDePessoas);
     }
 }
