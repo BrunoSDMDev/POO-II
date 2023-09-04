@@ -1,34 +1,10 @@
 package POOII.Exercicios.sorteador;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
+public interface Sorteador<T> {
 
-public class Sorteador <T>{
-    private List<T> elementos;
+    T sortear();
 
-    public Sorteador(List<T> elementos) {
-        this.elementos = elementos;
-    }
-
-    public T sortear() {
-        if (elementos.isEmpty()) {
-            return null;
-        }
-        int indiceSorteado = ThreadLocalRandom.current().nextInt(elementos.size());
-        T sorteado = elementos.remove(indiceSorteado);
-        return sorteado;
-    }
-
-
-
-    public boolean possuiElementos () {
-        return !elementos.isEmpty();
-    }
-
-
-
+    boolean possuiElementos();
 
 }
