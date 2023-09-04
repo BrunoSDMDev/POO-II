@@ -12,17 +12,14 @@ public abstract class SorteadorAbstrato<T> implements Sorteador<T> {
         this.elementos = elementos;
     }
 
-    /**
-     * Sorteia e remove um elemento da lista
-     * @return
-     */
-    public T sortear() {
+    public RecordPair<T, Integer> sortear() {
         if (elementos.isEmpty()) {
             return null;
         }
 
         int indiceSorteado = getIndiceSorteado();
-        return elementos.remove(indiceSorteado);
+        T elementoSorteado = elementos.remove(indiceSorteado);
+        return new RecordPair<>(elementoSorteado, indiceSorteado);
 
     }
 

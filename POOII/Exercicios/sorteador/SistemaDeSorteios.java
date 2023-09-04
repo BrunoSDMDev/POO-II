@@ -13,7 +13,6 @@ public class SistemaDeSorteios {
         elementos.add("Ana");
         elementos.add("Jorge");
         elementos.add("Miguel");
-        Sorteador sorteador = new Sorteador(elementos);
         Agrupador<String> agrupadorDeString = new Agrupador<>(elementos);
         List<Grupo<String>> gruposDePessoas = agrupadorDeString.agrupar(4);
         System.out.println(gruposDePessoas);

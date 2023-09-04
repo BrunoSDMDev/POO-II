@@ -4,18 +4,16 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
+public class SorteadorUltimo<T> extends SorteadorAbstrato<T> {
 
-public class SorteadorAleatorio<T> extends SorteadorAbstrato<T> {
 
-
-    public SorteadorAleatorio(List<T> elementos) {
+    public SorteadorUltimo(List<T> elementos) {
         super(elementos);
     }
 
     @Override
     protected int getIndiceSorteado() {
-        return ThreadLocalRandom.current().nextInt(0, quantidadeElementos());
+        return quantidadeElementos() - 1;
     }
-
 
 }
