@@ -1,9 +1,7 @@
-package POOII.Exercicios;
+package POOII.Exercicios.RevisãoPOO;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Comparator;
 
 public class Pessoa implements Comparable<Pessoa> {
 
