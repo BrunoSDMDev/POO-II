@@ -1,4 +1,8 @@
 package POOII.Exercicios.projetos.persistance;
 
-public interface AtorRepository {
+import POOII.Exercicios.projetos.model.Ator;
+public interface AtorRepository extends Repository<Ator, String> {
+
+    Ator buscarAutorPorNome(String nome);
+
 }

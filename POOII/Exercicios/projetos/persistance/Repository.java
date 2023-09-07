@@ -1,12 +1,19 @@
 package POOII.Exercicios.projetos.persistance;
 
 import POOII.Exercicios.projetos.model.Ator;
+import POOII.Exercicios.projetos.model.Entidade;
 
-public interface Repository <T, ID> {
+import java.util.List;
 
-    T salvar (T entidade);
+public interface Repository<T extends Entidade<ID>, ID> {
+
+    T salvar(T entidade);
+
     boolean remover(T entidade);
-    public void listarTodos();
-    public void buscarPorId();
 
+    boolean removerPorId(ID identificador);
+
+    List<T> listarTodos();
+
+    T buscarPorId(ID identificador);
 }
